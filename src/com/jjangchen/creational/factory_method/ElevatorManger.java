@@ -25,12 +25,12 @@ public class ElevatorManger {
         //throughputScheduler = new ThroughputScheduler();
 
         this.schedulingType = schedulingType;
-
     }
 
     public void requestElevator(int destination) {
         /*
         // 문제점1 해결방안 스트래티지 패턴 활용
+        // ElevatorScheduler 클래스로 캡슐화하여 전략에 맞게 구현체클래스를 생성
         ElevatorScheduler scheduler;
 
         int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
@@ -42,6 +42,7 @@ public class ElevatorManger {
 
         // 문제점2 해결방안의 과정 1
         ElevatorScheduler scheduler = SchedulerFactory.getScheduler(schedulingType);
+
 
         int selectedId = scheduler.selectElevator(this, destination);
         elevatorControllers.get(selectedId).gotoFloor(destination);
